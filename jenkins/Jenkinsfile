@@ -5,9 +5,16 @@ node {
 
     try {
 
+        stage('Checkout') {
+            echo 'Checking out source code...'
+            checkout scm
+        }
+
         stage("Build") {
 
             echo "Build .pyc..."
+            echo "pwd"
+            echo "ls -a"
 
             docker.image('python:2-alpine').inside() {
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py'
