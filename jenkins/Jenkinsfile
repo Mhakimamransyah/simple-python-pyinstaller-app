@@ -43,7 +43,7 @@ node {
     } finally {
 
         if (currentBuild.result != 'FAILURE') {
-            archiveArtifacts 'sources/*', allowEmptyArchive: true
+            archiveArtifacts 'sources/*'
         }
 
     }
