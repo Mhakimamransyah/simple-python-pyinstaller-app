@@ -13,8 +13,8 @@ node {
         stage("Build") {
 
             echo "Build .pyc..."
-            echo "pwd"
-            echo "ls -a"
+            sh "pwd"
+            sh "ls -a"
 
             docker.image('python:2-alpine').inside() {
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py'
@@ -43,7 +43,7 @@ node {
     } finally {
 
         if (currentBuild.result != 'FAILURE') {
-            archiveArtifacts 'dist/sources'
+            archiveArtifacts 'sources'
         }
 
     }
