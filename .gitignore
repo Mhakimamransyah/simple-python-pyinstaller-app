@@ -98,3 +98,11 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+/test-reports
+
+/.pytest_cache
+
+__pycache__
+
+
